@@ -36,7 +36,7 @@ RUN set -x; \
         && pip3 install wheel \
         && pip3 install -r odoo/requirements.txt    \
         && apt-get -y install -f --no-install-recommends \
-        && rm -rf /var/lib/apt/lists/* odoo.deb
+        && rm -rf /var/lib/apt/lists/* odoo.deb \
         && sudo cp /opt/odoo12/odoo/debian/odoo.conf /etc/odoo12.conf \
 
 # Copy entrypoint script and Odoo configuration file
