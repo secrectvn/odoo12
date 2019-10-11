@@ -63,7 +63,7 @@ ENV ODOO_VERSION 12.0
 #ARG ODOO_SHA=e95cdfe23d16a8572b63bc8d8e8616be5bc18a0a
 RUN set -x; \
         wget https://nightly.odoo.com/${ODOO_VERSION}/nightly/deb/odoo_${ODOO_VERSION}.latest_all.deb \
-        && dpkg --force-depends -i odoo_${ODOO_VERSION}.0.latest_all.deb \
+        && dpkg --force-depends -i odoo_${ODOO_VERSION}.latest_all.deb \
         && apt-get update \
         && apt-get -y install -f --no-install-recommends \
         && rm -rf /var/lib/apt/lists/* odoo.deb
