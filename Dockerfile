@@ -72,6 +72,10 @@ RUN set -x; \
         && apt-get update \
         && apt-get -y install -f --no-install-recommends \
         && rm -rf /var/lib/apt/lists/* odoo.deb
+# Install PIP3 lib
+RUN pip3 install setuptools-odoo
+RUN pip3 install wheel
+RUN pip3 install num2words xlwt phonenumbers py-Asterisk Voicent-Python SOAPpy
 
 # Copy entrypoint script and Odoo configuration file
 COPY ./entrypoint.sh /
