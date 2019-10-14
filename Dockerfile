@@ -73,8 +73,10 @@ RUN set -x; \
         && apt-get -y install -f --no-install-recommends \
         && rm -rf /var/lib/apt/lists/* odoo.deb
 # Install PIP3 lib
-RUN pip3 install setuptools-odoo
 RUN pip3 install wheel
+RUN pip3 install setuptools-odoo 
+RUN pip3 install odoo12-addon-base-phone-popup
+RUN pip3 install odoo12-addon-web-notify odoo-autodiscover setuptools-odoo
 RUN pip3 install num2words xlwt phonenumbers py-Asterisk Voicent-Python SOAPpy
 
 # Copy entrypoint script and Odoo configuration file
@@ -85,8 +87,11 @@ RUN chmod +x entrypoint.sh
 # Mount /var/lib/odoo to allow restoring filestore and /mnt/extra-addons for users addons
 RUN mkdir -p /mnt/extra-addons \
         && chown -R odoo /mnt/extra-addons
-VOLUME ["/var/lib/odoo", "/mnt/extra-addons", "/usr/lib/python3/dist-packages/odoo"]
-
+#VOLUME ["/var/lib/odoo", "/mnt/extra-addons", "/usr/lib/python3/"]
+VOLUME /var/lib/odoo
+VOLUME /mnt/extra-addons
+VOLUME /usr/lib/python3/
+VOLUME /etc/odoo/
 # Expose Odoo services
 EXPOSE 8069 8071
 

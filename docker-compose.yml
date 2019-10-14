@@ -10,7 +10,7 @@ services:
       - odoo-web:/var/lib/odoo
       - odoo-config:/etc/odoo
       - odoo-addons:/mnt/extra-addons
-      - odoo-package:/usr/lib/python3/dist-packages/odoo
+      - odoo-package:/usr/lib/python3/
   db:
     image: postgres:10
     environment:
