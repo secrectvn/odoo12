@@ -1,7 +1,7 @@
 version: '2'
 services:
   web:
-    image: secrect/odoo12:latest
+    image: 12as
     depends_on:
       - db
     ports:

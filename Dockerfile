@@ -88,11 +88,7 @@ RUN chmod +x entrypoint.sh
 RUN mkdir -p /mnt/extra-addons \
         && chown -R odoo /mnt/extra-addons
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
-#VOLUME /var/lib/odoo
-#VOLUME /mnt/extra-addons
-#VOLUME /usr/lib/python3/
-#VOLUME /etc/odoo/
-# Expose Odoo services
+
 EXPOSE 8069 8071
 
 # Set the default config file

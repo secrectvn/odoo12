@@ -33,7 +33,7 @@ case "$1" in
         fi
         ;;
     -*)
-        exec odoo "$@" "${DB_ARGS[@]}"
+        exec odoo "$@" "${DB_ARGS[@]} --dev=all "
         ;;
     *)
         exec "$@"
